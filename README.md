@@ -3,7 +3,8 @@ Simulation of rejection rates in did and triple difference as in our paper.
 
 The raw data is available in data_based/data/raw_data. 
 
-To reproduce our results run the following scripts, in sequential order: 
+To reproduce our results, open and run the following scripts, in sequential order: 
+* simulate_triple_difference.Rproj
 * 0_merge.rmd 
 * 1_wrangle.rmd
 * 2_simulate.R
