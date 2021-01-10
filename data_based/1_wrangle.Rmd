@@ -1,0 +1,51 @@
+---
+title: "Triple difference real wrangling"
+author: "Andreas Olden"
+date: "Updated: `r format(Sys.time(), '%m/%d/%Y')`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
+```
+
+```{r load packages, include = FALSE}
+library(tidyverse) # needs no introduction
+library(here) #relative file paths
+library(haven)
+```
+
+# Read merged data
+
+```{r}
+df_merged <- read_rds(here("data_based/data/cleaned_data", "df_merged.rds"))
+```
+
+# Create stripped dataframe 
+
+```{r}
+df_strip <- df_merged %>%
+  filter(minsamp == 4 & age >= 25 & age <= 50 & uearnwk >0 ) %>%
+  mutate(
+    luearnwk = log(uearnwk),
+    female = ifelse(sex==2, 1, 0)
+  ) %>%
+  select(-minsamp, -sex, -intmonth, -hhid) %>%
+  as_tibble(.) %>%
+  zap_formats(.) %>%
+  zap_label(.) %>%
+  zap_labels(.) %>%
+  na.omit(.)
+```
+
+```{r}
+glimpse(df_strip)
+```
+
+# Save resulting DF
+```{r}
+write_rds(df_strip, here("data_based/data/cleaned_data", "df_strip.rds"))
+```
+
+
+
