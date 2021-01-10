@@ -12,8 +12,8 @@ To reproduce our results run the following scripts, in sequential order:
 Note that this can take several days. 
 
 For convenience we have therefore included the data and results from all steps of the procedure: 
-* 0_merge.rmd produces df_merged.rds (needs to be unzipped, included as df_merged.7z)
-* 1_wrangle.rmd produces df_strip.rds (needs to be unzipped, included as df_strip.7z)
+* 0_merge.rmd produces df_merged.rds (needs to be unzipped, included as df_merged.7z in data/cleaned_data)
+* 1_wrangle.rmd produces df_strip.rds (needs to be unzipped, included as df_strip.7z in data/cleaned_data)
 * 2.simulate.R creates 4 files, also included in the folder sim_res
 
 
