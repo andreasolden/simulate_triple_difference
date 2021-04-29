@@ -1,5 +1,5 @@
 ---
-title: "Triple difference real wrangling"
+title: "Triple difference wrangling"
 author: "Andreas Olden"
 date: "Updated: `r format(Sys.time(), '%m/%d/%Y')`"
 output: html_document
@@ -9,16 +9,20 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
 ```
 
+```{r}
+#renv::init()
+renv::restore()
+```
+
 ```{r load packages, include = FALSE}
 library(tidyverse) # needs no introduction
 library(here) #relative file paths
-library(haven)
 ```
 
 # Read merged data
 
 ```{r}
-df_merged <- read_rds(here("data_based/data/cleaned_data", "df_merged.rds"))
+df_merged <- read_rds(here("r_scripts/data/cleaned_data", "df_merged.rds"))
 ```
 
 # Create stripped dataframe 
@@ -44,7 +48,7 @@ glimpse(df_strip)
 
 # Save resulting DF
 ```{r}
-write_rds(df_strip, here("data_based/data/cleaned_data", "df_strip.rds"))
+write_rds(df_strip, here("r_scripts/data/cleaned_data", "df_strip.rds"))
 ```
 
 

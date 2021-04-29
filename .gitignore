@@ -2,3 +2,5 @@
 .Rhistory
 .RData
 .Ruserdata
+.df_merged.rds
+.df_strip.rds

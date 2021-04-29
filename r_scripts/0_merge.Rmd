@@ -46,74 +46,74 @@ This is the file that generates the data material for the simulation. Raw materi
 ## Read data
 
 ```{r}
-df79 <- read_dta( here( "data_based/data/raw_data", "morg79.dta") ) %>% 
+df79 <- read_dta( here( "r_scripts/data/raw_data", "morg79.dta") ) %>% 
   select(minsamp, intmonth, hhid, state, age, sex, uearnwk, year)
 
-df80 <- read_dta( here( "data_based/data/raw_data", "morg80.dta") ) %>% 
+df80 <- read_dta( here( "r_scripts/data/raw_data", "morg80.dta") ) %>% 
   select(minsamp, intmonth, hhid, state, age, sex, uearnwk, year)
 
-df81 <- read_dta( here( "data_based/data/raw_data", "morg81.dta") ) %>% 
+df81 <- read_dta( here( "r_scripts/data/raw_data", "morg81.dta") ) %>% 
   select(minsamp, intmonth, hhid, state, age, sex, uearnwk, year)
 
-df82 <- read_dta( here( "data_based/data/raw_data", "morg82.dta") ) %>% 
+df82 <- read_dta( here( "r_scripts/data/raw_data", "morg82.dta") ) %>% 
   select(minsamp, intmonth, hhid, state, age, sex, uearnwk, year)
 
-df83 <- read_dta( here( "data_based/data/raw_data", "morg83.dta") ) %>% 
+df83 <- read_dta( here( "r_scripts/data/raw_data", "morg83.dta") ) %>% 
   select(minsamp, intmonth, hhid, state, age, sex, uearnwk, year)
 
-df84 <- read_dta( here( "data_based/data/raw_data", "morg84.dta") ) %>% 
+df84 <- read_dta( here( "r_scripts/data/raw_data", "morg84.dta") ) %>% 
   select(minsamp, intmonth, hhid, state, age, sex, uearnwk, year)
 
-df85 <- read_dta( here( "data_based/data/raw_data", "morg85.dta") ) %>% 
+df85 <- read_dta( here( "r_scripts/data/raw_data", "morg85.dta") ) %>% 
   select(minsamp, intmonth, hhid, state, age, sex, uearnwk, year)
 
-df86 <- read_dta( here( "data_based/data/raw_data", "morg86.dta") ) %>% 
+df86 <- read_dta( here( "r_scripts/data/raw_data", "morg86.dta") ) %>% 
   select(minsamp, intmonth, hhid, state, age, sex, uearnwk, year)
 
-df87 <- read_dta( here( "data_based/data/raw_data", "morg87.dta") ) %>% 
+df87 <- read_dta( here( "r_scripts/data/raw_data", "morg87.dta") ) %>% 
   select(minsamp, intmonth, hhid, state, age, sex, uearnwk, year)
 
-df88 <- read_dta( here( "data_based/data/raw_data", "morg88.dta") ) %>% 
+df88 <- read_dta( here( "r_scripts/data/raw_data", "morg88.dta") ) %>% 
   select(minsamp, intmonth, hhid, state, age, sex, uearnwk, year)
 
-df89 <- read_dta( here( "data_based/data/raw_data", "morg89.dta") ) %>% 
+df89 <- read_dta( here( "r_scripts/data/raw_data", "morg89.dta") ) %>% 
   select(minsamp, intmonth, hhid, state, age, sex, uearnwk, year)
 
-df90 <- read_dta( here( "data_based/data/raw_data", "morg90.dta") ) %>% 
+df90 <- read_dta( here( "r_scripts/data/raw_data", "morg90.dta") ) %>% 
   select(minsamp, intmonth, hhid, state, age, sex, uearnwk, year)
 
-df91 <- read_dta( here( "data_based/data/raw_data", "morg91.dta") ) %>% 
+df91 <- read_dta( here( "r_scripts/data/raw_data", "morg91.dta") ) %>% 
   select(minsamp, intmonth, hhid, state, age, sex, uearnwk, year)
 
-df92 <- read_dta( here( "data_based/data/raw_data", "morg92.dta") ) %>% 
+df92 <- read_dta( here( "r_scripts/data/raw_data", "morg92.dta") ) %>% 
   select(minsamp, intmonth, hhid, state, age, sex, uearnwk, year)
 
-df93 <- read_dta( here( "data_based/data/raw_data", "morg93.dta") ) %>% 
+df93 <- read_dta( here( "r_scripts/data/raw_data", "morg93.dta") ) %>% 
   select(minsamp, intmonth, hhid, state, age, sex, uearnwk, year)
 
 ################# NEW ENCODING ########################################
 
-df94 <- read_dta( here( "data_based/data/raw_data", "morg94.dta") ) %>% 
+df94 <- read_dta( here( "r_scripts/data/raw_data", "morg94.dta") ) %>% 
   rename(uearnwk = earnwke) %>%
   select(minsamp, intmonth, hhid, state, age, sex, uearnwk, year) 
 
-df95 <- read_dta( here( "data_based/data/raw_data", "morg95.dta") ) %>% 
+df95 <- read_dta( here( "r_scripts/data/raw_data", "morg95.dta") ) %>% 
   rename(uearnwk = earnwke) %>%
   select(minsamp, intmonth, hhid, state, age, sex, uearnwk, year) 
 
-df96 <- read_dta( here( "data_based/data/raw_data", "morg96.dta") ) %>% 
+df96 <- read_dta( here( "r_scripts/data/raw_data", "morg96.dta") ) %>% 
   rename(uearnwk = earnwke) %>%
   select(minsamp, intmonth, hhid, state, age, sex, uearnwk, year) 
 
-df97 <- read_dta( here( "data_based/data/raw_data", "morg97.dta") ) %>% 
+df97 <- read_dta( here( "r_scripts/data/raw_data", "morg97.dta") ) %>% 
   rename(uearnwk = earnwke) %>%
   select(minsamp, intmonth, hhid, state, age, sex, uearnwk, year) 
 
-df98 <- read_dta( here( "data_based/data/raw_data", "morg98.dta") ) %>% 
+df98 <- read_dta( here( "r_scripts/data/raw_data", "morg98.dta") ) %>% 
   rename(uearnwk = earnwke) %>%
   select(minsamp, intmonth, hhid, state, age, sex, uearnwk, year) 
 
-df99 <- read_dta( here( "data_based/data/raw_data", "morg99.dta") ) %>% 
+df99 <- read_dta( here( "r_scripts/data/raw_data", "morg99.dta") ) %>% 
   rename(uearnwk = earnwke) %>%
   select(minsamp, intmonth, hhid, state, age, sex, uearnwk, year) 
 
@@ -134,7 +134,7 @@ glimpse(df_merged)
 
 # Save df_merged
 ```{r}
-write_rds(df_merged, here("data_based/data/cleaned_data", "df_merged.rds"))
+write_rds(df_merged, here("r_scripts/data/cleaned_data", "df_merged.rds"))
 ```
 
 

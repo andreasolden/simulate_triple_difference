@@ -5,6 +5,11 @@ date: "Updated: `r format(Sys.time(), '%m/%d/%Y')`"
 output: html_document
 ---
 
+```{r}
+#renv::init()
+renv::restore()
+```
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 options(scipen = 999)
@@ -22,10 +27,10 @@ rejection_rates = function(x) {
   x %>% lapply(., lessthan) %>% lapply(., sum) %>% as.data.frame(.)/10000
 }
 
-r1_full = rejection_rates(as.data.frame(read_rds(here("data_based/sim_res", "sim_25.rds")) ))
-r2_full = rejection_rates(as.data.frame(read_rds(here("data_based/sim_res", "sim_5.rds")) ))
-r3_full = rejection_rates(as.data.frame(read_rds(here("data_based/sim_res", "sim_2.rds")) ))
-r4_full = rejection_rates(as.data.frame(read_rds(here("data_based/sim_res", "sim_1.rds")) ))
+r1_full = rejection_rates(as.data.frame(read_rds(here("r_scripts/sim_res", "sim_25.rds")) ))
+r2_full = rejection_rates(as.data.frame(read_rds(here("r_scripts/sim_res", "sim_5.rds")) ))
+r3_full = rejection_rates(as.data.frame(read_rds(here("r_scripts/sim_res", "sim_2.rds")) ))
+r4_full = rejection_rates(as.data.frame(read_rds(here("r_scripts/sim_res", "sim_1.rds")) ))
 ```
 
 # Table 1

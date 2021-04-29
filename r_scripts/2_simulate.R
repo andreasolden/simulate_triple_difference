@@ -1,3 +1,6 @@
+#renv::init()
+renv::restore()
+
 # Simulate all
 options(scipen=999)
 
@@ -6,7 +9,7 @@ library(foreach); library(doParallel); library(doRNG)
 library(here); library(tidyverse)
 library(fixest)
 
-df_strip <- read_rds(here("data_based/data/cleaned_data", "df_strip.rds"))
+df_strip <- read_rds(here("r_scripts/data/cleaned_data", "df_strip.rds"))
 states = unique(df_strip$state)
 
 # Uniform sampling of nstates states
@@ -14,7 +17,7 @@ states = unique(df_strip$state)
 # Run regressions, calculate standard errors, see more at https://cran.r-project.org/web/packages/fixest/vignettes/standard_errors.html
 # Rerun nrepl times
 
-# Simulation 1 
+# Simulation 1 - 25 treated
 
 start_time = Sys.time()
 
@@ -181,9 +184,9 @@ stopCluster(cl)
 end_time = Sys.time()
 tot_time = start_time - end_time
 
-saveRDS(montesim, file = here("data_based/sim_res", "sim_25.rds"))
+saveRDS(montesim, file = here("r_scripts/sim_res", "sim_25.rds"))
 
-# Simulation 2
+# Simulation 2 - 5 treated
 
 start_time = Sys.time()
 
@@ -350,9 +353,9 @@ stopCluster(cl)
 end_time = Sys.time()
 tot_time = start_time - end_time
 
-saveRDS(montesim, file = here("data_based/sim_res", "sim_5.rds"))
+saveRDS(montesim, file = here("r_scripts/sim_res", "sim_5.rds"))
 
-# Simulation 3
+# Simulation 3 - 2 treated
 
 start_time = Sys.time()
 
@@ -519,9 +522,9 @@ stopCluster(cl)
 end_time = Sys.time()
 tot_time = start_time - end_time
 
-saveRDS(montesim, file = here("data_based/sim_res", "sim_2.rds"))
+saveRDS(montesim, file = here("r_scripts/sim_res", "sim_2.rds"))
 
-# Simulation 4
+# Simulation 4 - 1 treated
 
 start_time = Sys.time()
 
@@ -688,4 +691,4 @@ stopCluster(cl)
 end_time = Sys.time()
 tot_time = start_time - end_time
 
-saveRDS(montesim, file = here("data_based/sim_res", "sim_1.rds"))
+saveRDS(montesim, file = here("r_scripts/sim_res", "sim_1.rds"))
