@@ -412,11 +412,14 @@ summary {
 
 <h1 class="title toc-ignore">Triple difference merge datasets</h1>
 <h4 class="author">Andreas Olden</h4>
-<h4 class="date">Updated: 01/10/2021</h4>
+<h4 class="date">Updated: 04/29/2021</h4>
 
 </div>
 
 
+<pre class="r"><code>#renv::init()
+renv::restore()</code></pre>
+<pre><code>## * The library is already synchronized with the lockfile.</code></pre>
 <div id="intro" class="section level1">
 <h1>Intro</h1>
 <p>This is the file that generates the data material for the simulation. Raw material downloaded: 19 November 2020 from: <a href="https://www.nber.org/research/data/current-population-survey-cps-data-nber" class="uri">https://www.nber.org/research/data/current-population-survey-cps-data-nber</a></p>
@@ -436,74 +439,74 @@ summary {
 </div>
 <div id="read-data" class="section level2">
 <h2>Read data</h2>
-<pre class="r"><code>df79 &lt;- read_dta( here( &quot;data_based/data/raw_data&quot;, &quot;morg79.dta&quot;) ) %&gt;% 
+<pre class="r"><code>df79 &lt;- read_dta( here( &quot;r_scripts/data/raw_data&quot;, &quot;morg79.dta&quot;) ) %&gt;% 
   select(minsamp, intmonth, hhid, state, age, sex, uearnwk, year)
 
-df80 &lt;- read_dta( here( &quot;data_based/data/raw_data&quot;, &quot;morg80.dta&quot;) ) %&gt;% 
+df80 &lt;- read_dta( here( &quot;r_scripts/data/raw_data&quot;, &quot;morg80.dta&quot;) ) %&gt;% 
   select(minsamp, intmonth, hhid, state, age, sex, uearnwk, year)
 
-df81 &lt;- read_dta( here( &quot;data_based/data/raw_data&quot;, &quot;morg81.dta&quot;) ) %&gt;% 
+df81 &lt;- read_dta( here( &quot;r_scripts/data/raw_data&quot;, &quot;morg81.dta&quot;) ) %&gt;% 
   select(minsamp, intmonth, hhid, state, age, sex, uearnwk, year)
 
-df82 &lt;- read_dta( here( &quot;data_based/data/raw_data&quot;, &quot;morg82.dta&quot;) ) %&gt;% 
+df82 &lt;- read_dta( here( &quot;r_scripts/data/raw_data&quot;, &quot;morg82.dta&quot;) ) %&gt;% 
   select(minsamp, intmonth, hhid, state, age, sex, uearnwk, year)
 
-df83 &lt;- read_dta( here( &quot;data_based/data/raw_data&quot;, &quot;morg83.dta&quot;) ) %&gt;% 
+df83 &lt;- read_dta( here( &quot;r_scripts/data/raw_data&quot;, &quot;morg83.dta&quot;) ) %&gt;% 
   select(minsamp, intmonth, hhid, state, age, sex, uearnwk, year)
 
-df84 &lt;- read_dta( here( &quot;data_based/data/raw_data&quot;, &quot;morg84.dta&quot;) ) %&gt;% 
+df84 &lt;- read_dta( here( &quot;r_scripts/data/raw_data&quot;, &quot;morg84.dta&quot;) ) %&gt;% 
   select(minsamp, intmonth, hhid, state, age, sex, uearnwk, year)
 
-df85 &lt;- read_dta( here( &quot;data_based/data/raw_data&quot;, &quot;morg85.dta&quot;) ) %&gt;% 
+df85 &lt;- read_dta( here( &quot;r_scripts/data/raw_data&quot;, &quot;morg85.dta&quot;) ) %&gt;% 
   select(minsamp, intmonth, hhid, state, age, sex, uearnwk, year)
 
-df86 &lt;- read_dta( here( &quot;data_based/data/raw_data&quot;, &quot;morg86.dta&quot;) ) %&gt;% 
+df86 &lt;- read_dta( here( &quot;r_scripts/data/raw_data&quot;, &quot;morg86.dta&quot;) ) %&gt;% 
   select(minsamp, intmonth, hhid, state, age, sex, uearnwk, year)
 
-df87 &lt;- read_dta( here( &quot;data_based/data/raw_data&quot;, &quot;morg87.dta&quot;) ) %&gt;% 
+df87 &lt;- read_dta( here( &quot;r_scripts/data/raw_data&quot;, &quot;morg87.dta&quot;) ) %&gt;% 
   select(minsamp, intmonth, hhid, state, age, sex, uearnwk, year)
 
-df88 &lt;- read_dta( here( &quot;data_based/data/raw_data&quot;, &quot;morg88.dta&quot;) ) %&gt;% 
+df88 &lt;- read_dta( here( &quot;r_scripts/data/raw_data&quot;, &quot;morg88.dta&quot;) ) %&gt;% 
   select(minsamp, intmonth, hhid, state, age, sex, uearnwk, year)
 
-df89 &lt;- read_dta( here( &quot;data_based/data/raw_data&quot;, &quot;morg89.dta&quot;) ) %&gt;% 
+df89 &lt;- read_dta( here( &quot;r_scripts/data/raw_data&quot;, &quot;morg89.dta&quot;) ) %&gt;% 
   select(minsamp, intmonth, hhid, state, age, sex, uearnwk, year)
 
-df90 &lt;- read_dta( here( &quot;data_based/data/raw_data&quot;, &quot;morg90.dta&quot;) ) %&gt;% 
+df90 &lt;- read_dta( here( &quot;r_scripts/data/raw_data&quot;, &quot;morg90.dta&quot;) ) %&gt;% 
   select(minsamp, intmonth, hhid, state, age, sex, uearnwk, year)
 
-df91 &lt;- read_dta( here( &quot;data_based/data/raw_data&quot;, &quot;morg91.dta&quot;) ) %&gt;% 
+df91 &lt;- read_dta( here( &quot;r_scripts/data/raw_data&quot;, &quot;morg91.dta&quot;) ) %&gt;% 
   select(minsamp, intmonth, hhid, state, age, sex, uearnwk, year)
 
-df92 &lt;- read_dta( here( &quot;data_based/data/raw_data&quot;, &quot;morg92.dta&quot;) ) %&gt;% 
+df92 &lt;- read_dta( here( &quot;r_scripts/data/raw_data&quot;, &quot;morg92.dta&quot;) ) %&gt;% 
   select(minsamp, intmonth, hhid, state, age, sex, uearnwk, year)
 
-df93 &lt;- read_dta( here( &quot;data_based/data/raw_data&quot;, &quot;morg93.dta&quot;) ) %&gt;% 
+df93 &lt;- read_dta( here( &quot;r_scripts/data/raw_data&quot;, &quot;morg93.dta&quot;) ) %&gt;% 
   select(minsamp, intmonth, hhid, state, age, sex, uearnwk, year)
 
 ################# NEW ENCODING ########################################
 
-df94 &lt;- read_dta( here( &quot;data_based/data/raw_data&quot;, &quot;morg94.dta&quot;) ) %&gt;% 
+df94 &lt;- read_dta( here( &quot;r_scripts/data/raw_data&quot;, &quot;morg94.dta&quot;) ) %&gt;% 
   rename(uearnwk = earnwke) %&gt;%
   select(minsamp, intmonth, hhid, state, age, sex, uearnwk, year) 
 
-df95 &lt;- read_dta( here( &quot;data_based/data/raw_data&quot;, &quot;morg95.dta&quot;) ) %&gt;% 
+df95 &lt;- read_dta( here( &quot;r_scripts/data/raw_data&quot;, &quot;morg95.dta&quot;) ) %&gt;% 
   rename(uearnwk = earnwke) %&gt;%
   select(minsamp, intmonth, hhid, state, age, sex, uearnwk, year) 
 
-df96 &lt;- read_dta( here( &quot;data_based/data/raw_data&quot;, &quot;morg96.dta&quot;) ) %&gt;% 
+df96 &lt;- read_dta( here( &quot;r_scripts/data/raw_data&quot;, &quot;morg96.dta&quot;) ) %&gt;% 
   rename(uearnwk = earnwke) %&gt;%
   select(minsamp, intmonth, hhid, state, age, sex, uearnwk, year) 
 
-df97 &lt;- read_dta( here( &quot;data_based/data/raw_data&quot;, &quot;morg97.dta&quot;) ) %&gt;% 
+df97 &lt;- read_dta( here( &quot;r_scripts/data/raw_data&quot;, &quot;morg97.dta&quot;) ) %&gt;% 
   rename(uearnwk = earnwke) %&gt;%
   select(minsamp, intmonth, hhid, state, age, sex, uearnwk, year) 
 
-df98 &lt;- read_dta( here( &quot;data_based/data/raw_data&quot;, &quot;morg98.dta&quot;) ) %&gt;% 
+df98 &lt;- read_dta( here( &quot;r_scripts/data/raw_data&quot;, &quot;morg98.dta&quot;) ) %&gt;% 
   rename(uearnwk = earnwke) %&gt;%
   select(minsamp, intmonth, hhid, state, age, sex, uearnwk, year) 
 
-df99 &lt;- read_dta( here( &quot;data_based/data/raw_data&quot;, &quot;morg99.dta&quot;) ) %&gt;% 
+df99 &lt;- read_dta( here( &quot;r_scripts/data/raw_data&quot;, &quot;morg99.dta&quot;) ) %&gt;% 
   rename(uearnwk = earnwke) %&gt;%
   select(minsamp, intmonth, hhid, state, age, sex, uearnwk, year) 
 
@@ -532,7 +535,7 @@ rm(
 </div>
 <div id="save-df_merged" class="section level1">
 <h1>Save df_merged</h1>
-<pre class="r"><code>write_rds(df_merged, here(&quot;data_based/data/cleaned_data&quot;, &quot;df_merged.rds&quot;))</code></pre>
+<pre class="r"><code>write_rds(df_merged, here(&quot;r_scripts/data/cleaned_data&quot;, &quot;df_merged.rds&quot;))</code></pre>
 </div>
 <div id="state-codes" class="section level1">
 <h1>state codes</h1>

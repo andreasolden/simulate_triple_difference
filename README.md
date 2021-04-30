@@ -26,7 +26,8 @@ To ensure reproducibility of the packages/enviroment we use the package 'renv'. 
 Note: 
 
 * The first time you run renv it might take some time 
-* Each script/rmd-file calls renv to ensure reproducibilty also if you only reproduce parts of the process. 
+* Each script/rmd-file calls renv to ensure reproducibility also if you only reproduce parts of the process. 
+* DoRNG is used to ensure reproducibility with parallel computing 
 
 Reproducibility has been checked across Windows platforms. We have also taken steps to ensure across platform reproducibility, but due to different backends under parallelization between windows and linux/ios user mights still encounter issues.Please contact the authors at andreasolden@gmail.com if you face such issues. 
 

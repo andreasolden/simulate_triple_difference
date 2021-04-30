@@ -17,6 +17,7 @@ renv::restore()
 ```{r load packages, include = FALSE}
 library(tidyverse) # needs no introduction
 library(here) #relative file paths
+library(haven) #to zap
 ```
 
 # Read merged data
