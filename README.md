@@ -26,7 +26,7 @@ Make especially sure that you always open the Rproj file first to ensure that th
 * 2.simulate.R creates 4 files, also included in the folder sim_res
 * The raw data is available in data_based/data/raw_data. 
 
-To ensure reproducibility of the packages/enviroment we use the package 'renv'. Documentation is available at: https://cran.r-project.org/web/packages/renv/vignettes/renv.html
+To ensure reproducibility of the packages/environment we use the package 'renv'. Documentation is available at: https://cran.r-project.org/web/packages/renv/vignettes/renv.html
 
 Note: 
 
@@ -40,7 +40,7 @@ Reproducibility has been checked across Windows platforms. We have also taken st
 Data Availability and Provenance Statements
 ----------------------------
 
-The data is the Population Survey in their fourth interview month, in the Merged Outgoing Rotation Group, from 1979 to 1999. The data can be accessed, with descriptions, from https://www.nber.org/research/data/current-population-survey-cps-data-nber. The data was downloaded 19 November 2020 from: https://data.nber.org/morg/annual/. A copy of the data is provided as part of this archive
+The data is the Population Survey in their fourth interview month, in the Merged Outgoing Rotation Group, from 1979 to 1999. The data can be accessed, with descriptions, from https://www.nber.org/research/data/current-population-survey-cps-data-nber. The data was downloaded 19 November 2020 from: https://data.nber.org/morg/annual/. A copy of the data is provided as part of this archive in r_scripts/data/raw_data
 
 Datafiles:  `morg79.dta`-`morg99.dta`
 
@@ -55,11 +55,7 @@ Datafiles:  `morg79.dta`-`morg99.dta`
 - [ ] Some data **cannot be made** publicly available.
 - [ ] **No data can be made** publicly available.
 
-
-
 ### Controlled Randomness
-
-> INSTRUCTIONS: Some estimation code uses random numbers, almost always provided by pseudorandom number generators (PRNGs). For reproducibility purposes, these should be provided with a deterministic seed, so that the sequence of numbers provided is the same for the original author and any replicators. While this is not always possible, it is a requirement by many journals' policies. The seed should be set once, and not use a time-stamp. If using parallel processing, special care needs to be taken. If using multiple programs in sequence, care must be taken on how to call these programs, ideally from a main program, so that the sequence is not altered.
 
 - [registerDoRNG(seed = 2211)] Random seed is set at line 26 of 2_simulate.R
 - [registerDoRNG(seed = 2211)] Random seed is set at line 195 of 2_simulate.R
@@ -67,10 +63,6 @@ Datafiles:  `morg79.dta`-`morg99.dta`
 - [registerDoRNG(seed = 2211)] Random seed is set at line 533 of 2_simulate.R
 
 ### Memory and Runtime Requirements
-
-> INSTRUCTIONS: Memory and compute-time requirements may also be relevant or even critical. Some example text follows. It may be useful to break this out by Table/Figure/section of processing. For instance, some estimation routines might run for weeks, but data prep and creating figures might only take a few minutes.
-
-#### Summary
 
 Approximate time needed to reproduce the analyses on a standard (CURRENT YEAR) desktop machine:
 
