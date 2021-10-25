@@ -33,7 +33,8 @@ r3_full = rejection_rates(as.data.frame(read_rds(here("r_scripts/sim_res", "sim_
 r4_full = rejection_rates(as.data.frame(read_rds(here("r_scripts/sim_res", "sim_1.rds")) ))
 ```
 
-# Table 1
+# Table 4 (page 22)
+
 ```{r tab 1}
 rbind("25"=r1_full, "5"=r2_full, 
       "2"=r3_full, "1"=r4_full) %>% 
@@ -70,7 +71,7 @@ rbind("25"=r1_full, "5"=r2_full,
     ) 
 ```
 
-# Table 2
+# Table 5 page 23
 
 ```{r table 2}
 rbind("25"=r1_full, "5"=r2_full, 
@@ -109,7 +110,7 @@ rbind("25"=r1_full, "5"=r2_full,
     )
 ```
 
-# Table 3
+# Table 6 page 24
 
 ```{r table 3}
 rbind("25"=r1_full, "5"=r2_full, 

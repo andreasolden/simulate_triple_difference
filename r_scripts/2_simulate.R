@@ -182,7 +182,7 @@ montesim <-
 
 stopCluster(cl)
 end_time = Sys.time()
-tot_time = start_time - end_time
+tot_time_25 = start_time - end_time
 
 saveRDS(montesim, file = here("r_scripts/sim_res", "sim_25.rds"))
 
@@ -351,7 +351,7 @@ montesim <-
 
 stopCluster(cl)
 end_time = Sys.time()
-tot_time = start_time - end_time
+tot_time_5 = start_time - end_time
 
 saveRDS(montesim, file = here("r_scripts/sim_res", "sim_5.rds"))
 
@@ -520,7 +520,7 @@ montesim <-
 
 stopCluster(cl)
 end_time = Sys.time()
-tot_time = start_time - end_time
+tot_time_2 = start_time - end_time
 
 saveRDS(montesim, file = here("r_scripts/sim_res", "sim_2.rds"))
 
@@ -689,6 +689,6 @@ montesim <-
 
 stopCluster(cl)
 end_time = Sys.time()
-tot_time = start_time - end_time
+tot_time_1 = start_time - end_time
 
 saveRDS(montesim, file = here("r_scripts/sim_res", "sim_1.rds"))
