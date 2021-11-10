@@ -10,7 +10,7 @@ knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
 ```
 
 ```{r}
-install.packages("renv")
+#install.packages("renv")
 #renv::init()
 renv::restore()
 ```
