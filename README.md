@@ -39,7 +39,7 @@ Reproducibility has been checked across Windows platforms. We have also taken st
 Trouble shooting
 ----------------
 
-Running this code might require admin privileges due to parallelization and renv. If renv does not bootstrap correctly, please install it independent of this replication to ensure all permissions are granted in the installation process. 
+Running this code might require admin privileges due to parallelization and renv. If renv does not bootstrap correctly, please install it independent of this replication to ensure all permissions are granted in the installation process. If this still does not work, try running Rstudio as an administrator. 
 
 
 Folder structure
