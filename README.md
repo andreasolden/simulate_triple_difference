@@ -4,8 +4,6 @@ contributors:
   - Jarle Møen
 ---
 
-# Template README and Guidance
-
 Overview
 --------
 
