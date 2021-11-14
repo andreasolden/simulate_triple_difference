@@ -11,9 +11,9 @@ Overview
 
 The code in this replication package reproduces the rejection rates simulations of our paper on the triple difference estimator (Olden & Møen, 2021). It takes raw data from the Population Survey in their fourth interview month, in the Merged Outgoing Rotation Group, from 1979 to 1999, merge it, and simulate treatment effects of varying sizes and differing number of treatment clusters as described in appendix B. This produces all results and table of our paper. This can take several days on a standard desktop. 
 
-To reproduce our results, open and run the following scripts (in folder r_scripts), in sequential order as administrator: 
+To reproduce our results, open and run the following scripts, located in the folder r_scripts, in sequential order as administrator: 
 
-* simulate_triple_difference.Rproj
+* simulate_triple_difference.Rproj (In main folder)
 * 0_merge.rmd 
 * 1_wrangle.rmd
 * 2_simulate.R
@@ -26,7 +26,7 @@ Make especially sure that you always open the Rproj file first to ensure that th
 * 2.simulate.R creates 4 files, also included in the folder r_scripts/sim_res
 * The raw data is available in r_scripts//data/raw_data. 
 
-To ensure reproducibility of the packages/environment we use the package 'renv'. Documentation is available at: https://cran.r-project.org/web/packages/renv/vignettes/renv.html
+To ensure reproducibility of the packages/environment we use the package 'renv'. Documentation is available at: https://cran.r-project.org/web/packages/renv/vignettes/renv.html and https://rstudio.github.io/renv/articles/renv.html
 
 Note: 
 
@@ -35,6 +35,12 @@ Note:
 * DoRNG is used to ensure reproducibility with parallel computing 
 
 Reproducibility has been checked across Windows platforms. We have also taken steps to ensure across platform reproducibility, but due to different backends under parallelization between windows and linux/ios user mights still encounter issues.Please contact the authors at andreasolden@gmail.com if you face such issues. 
+
+Trouble shooting
+----------------
+
+Running this code might require admin privileges due to parallelization and renv. If renv does not bootstrap correctly, please install it independent of this replication to ensure all permissions are granted in the installation process. 
+
 
 Folder structure
 ----------------
