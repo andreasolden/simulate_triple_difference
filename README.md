@@ -1,7 +1,8 @@
 ---
 contributors:
-  - Andreas Olden
-  - Jarle Møen
+- Andreas Olden
+- Jarle Møen
+output: pdf_document
 ---
 
 Overview
