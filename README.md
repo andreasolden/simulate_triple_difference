@@ -37,8 +37,10 @@ Reproducibility has been checked across Windows platforms. We have also taken st
 Trouble shooting
 ----------------
 
-Running this code might require admin privileges due to parallelization and renv. If renv does not bootstrap correctly, please install it independent of this replication to ensure all permissions are granted in the installation process. If this still does not work, try running Rstudio as an administrator. 
-
+- You might be prompted to install packages
+- You might have to install Rtools (https://cran.r-project.org/bin/windows/Rtools/rtools40.html)
+- RENV might need you to accept in the console
+- Running this code might require admin privileges due to parallelization and renv.
 
 Folder structure
 ----------------

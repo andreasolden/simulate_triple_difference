@@ -33,6 +33,11 @@ r3_full = rejection_rates(as.data.frame(read_rds(here("r_scripts/sim_res", "sim_
 r4_full = rejection_rates(as.data.frame(read_rds(here("r_scripts/sim_res", "sim_1.rds")) ))
 ```
 
+```{r read nobs, include = FALSE}
+df_nobs = readRDS( here("r_scripts/sim_res", "df_nobs.rds"))
+```
+
+
 # Table 4 (page 22)
 
 ```{r tab 1}
@@ -149,21 +154,15 @@ rbind("25"=r1_full, "5"=r2_full,
 
 ```
 
-```{r table 3 version 2, include = FALSE}
-rbind("25"=r1_full, "5"=r2_full, 
-      "2"=r3_full, "1"=r4_full) %>% 
-  select('(1) Difference-in-difference' = did_agg_c, '(2) Triple as DID' = rel_agg_c, '(3) Triple difference' = trip_agg_c, 
-         '(4) Difference-in-difference' = w2_did_agg_c, '(5) Triple as DID' = w2_rel_agg_c, '(6) Triple difference' = w2_trip_agg_c,
-         '(7) Difference-in-difference' = w5_did_agg_c, '(8) Triple as DID' = w5_rel_agg_c, '(9) Triple difference' = w5_trip_agg_c) %>%
-  t(.) %>%
-  kbl(caption = "Aggregated models",
-      col.names = c( "25", "5", "2", "1"),
-      align = "c"
-      ) %>%
-   kable_classic(full_width = F, html_font = "Cambria") %>%
-  pack_rows(
-  index = c("No effect" = 3, "2 Percent effect" = 3, "5 percent effect" = 3)
-  ) %>%
-  footnote(general = " "
-           )
+# Number of observations 
+
+Note that the number of observations follow the estimation method as their are transformations of the same underlying dataset.
+
+```{r}
+
+as.data.frame(df_nobs) %>% 
+  summarise_all(list(mean)) %>% 
+  kbl( ) %>% 
+  kable_classic(full_width = F, html_font = "Cambria")
 ```
+

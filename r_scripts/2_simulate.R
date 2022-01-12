@@ -692,3 +692,94 @@ end_time = Sys.time()
 tot_time_1 = start_time - end_time
 
 saveRDS(montesim, file = here("r_scripts/sim_res", "sim_1.rds"))
+
+###############################################################################################################
+# NOBS
+###############################################################################################################
+
+start_time = Sys.time()
+
+cl <- makeCluster(detectCores())
+registerDoParallel(cl)
+registerDoRNG(seed = 2211)
+
+nrepl = 10000
+nstates = 25
+
+# Start simulation
+
+montesim <-
+  foreach(irepl=1:nrepl, .combine=rbind, .packages=c("fixest", "dplyr", "tidyr") ) %dorng% {
+
+    nstates = 25
+    
+    states = unique(df_strip$state)
+    
+    # Gen data
+    treatmentstates = sample(states, nstates, replace = FALSE) # uniform sampling of #nstates states
+    treatmentyear = sample(1985:1995, 1)
+    
+    df = df_strip %>% mutate(
+      treatstates = ifelse(state %in% treatmentstates, 1, 0), # gen dummy variable treatstates
+      treatyears = ifelse( (year>= treatmentyear ) , 1, 0 ), # gen dummy variable treatyears
+      treat = ifelse(treatstates== 1 & treatyears == 1, 1, 0)  # gen dummy of interaction of the two above
+    )
+    
+    # INDIVIDUAL DATA 
+    # DiD female regression (subset on female)
+    didf = feols(luearnwk ~ treat | state + year, df[df$female==1,], notes=FALSE) 
+    
+    n1 = didf$nobs
+    
+    rm(didf)
+    
+    # Triple
+    trip = feols(luearnwk ~ treatstates*treatyears*female + female | state + year, df, notes=FALSE)
+    
+    n2 = trip$nobs
+    
+    rm(trip)
+    
+    # AGGREGATE DATA
+    dflong = df %>% group_by(state, year, female) %>% summarise(meanearn = mean(uearnwk)) %>% ungroup() %>%
+      mutate(
+        treatstates = ifelse(state %in% treatmentstates, 1, 0), # gen dummy variable treatstates
+        treatyears = ifelse( (year>= treatmentyear ) , 1, 0 ), # gen dummy variable treatyears
+        treat = ifelse(treatstates== 1 & treatyears == 1, 1, 0)  # gen dummy of interaction of the two above
+      )
+    
+    dfwide = dflong %>% mutate(genderwagelabel = ifelse(female==1, "wageF", "wageM")) %>%
+      select(-female) %>% pivot_wider(names_from = genderwagelabel, values_from = meanearn)
+    
+    # DiD female regression
+    didf = feols( log(wageF) ~ treat | state + year, dfwide, notes=FALSE) 
+    
+    n3 = didf$nobs
+    
+    
+    # DiD female-male relative outcome 
+    didf = feols( log(wageF) - log(wageM) ~ treat | state + year, dfwide, notes=FALSE) 
+    
+    n4 = didf$nobs
+    
+    rm(didf)
+    
+    # Triple
+    trip = feols(log(meanearn) ~ treatstates*treatyears*female + female | state + year, dflong, notes=FALSE)
+    
+    n5 = trip$nobs
+    rm(trip, dflong, dfwide)
+    
+    
+    #OUT
+    c("DID female individual data"=n1, "Triple difference individual data"=n2, "DiD female aggregated data"=n3, "Triple as DID aggregated data"=n4, "Triple diff aggreagted data"=n5)
+  }
+
+stopCluster(cl)
+end_time = Sys.time()
+tot_time_nobs = start_time - end_time
+
+df_nobs = as.data.frame(montesim)
+
+
+saveRDS(df_nobs, file = here("r_scripts/sim_res", "df_nobs.rds"))
